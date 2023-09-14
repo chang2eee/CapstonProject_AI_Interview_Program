@@ -1,0 +1,180 @@
+/*a*/
+/*b*/
+body {
+  /*margin 외부 여백 padding내부 여백 폰트 arial또는 sans*/
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/*c*/
+.content {
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+/*d*/
+/*e*/
+.empty-section{
+  width: 80%;
+  overflow: auto;
+  height: 600px;
+}
+
+/*f*/
+
+footer {
+
+  margin: 0 auto;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  left: 0;
+  bottom: 0;
+}
+
+
+footer a{
+
+  color: white;
+  padding: 10px;
+
+}
+
+/*g*/
+/*h*/
+
+
+h1 {
+  font-size: auto;
+  line-height: 0px; /* 텍스트의 높이를 0px로 지정 */
+  width: 100%;
+  height: 10%; 
+}
+
+html{
+  background: linear-gradient(to bottom right, #555555f6, #fcf9fc);
+}
+
+header nav{
+  background-color: #555;
+  text-align: right;
+  border: 1px solid;
+
+}
+
+header img {
+  width: 10%;
+  height: 80%; 
+  vertical-align: right;
+}
+
+header {
+
+  margin: 0 auto;
+  color: rgb(10, 10, 10);
+  text-align: center;
+}
+/*i*/
+/*j*/
+/*k*/
+/*l*/
+#left {
+  float: left;
+  width: 50%;
+  height: 400px;
+}
+/*m*/
+main{
+  padding: 0;
+}
+
+main img{
+  width: 200px;
+  height: 200px; 
+  vertical-align: middle;
+}
+
+main nav {
+
+  margin: 0 auto;
+  background-color: #555;
+  text-align: left;
+
+  border: 1px solid;
+}
+/*n*/
+
+nav ul {
+  list-style: none;
+
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+}
+/*o*/
+/*p*/
+/*r*/
+#right {
+  float: right;
+  width: 50%;
+  height: 400px;
+}
+/*s*/
+section{
+  /*width 80%넓이는 브라우저의 80%   margin 0auto 수평 가운데 정렬을 시키는 역할*/
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  /*블록 요소를 가운데 정렬합니다. 요소의 가로폭이 설정되어 있어야 합니다.*/
+  height: 20%;
+}
+/*t*/
+/*u*/
+/*v*/
+/*w*/
+/*x*/
+/*y*/
+/*z*/
+
+/**/
+
+
+
+
+
+
+
+  
+
+ 
+
+
+
+  /* CSS 스타일링 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*제일 하단의 리스트 양식*/
+
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Home Page</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/info.css">
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ol>
+          <li><a href="https://www.naver.com">알림</a></li>
+          <li><a href="https://www.youtube.com/">메세지함</a></li>
+          <li><a href="https://www.google.co.kr/">마이페이지</a></li>
+          <li><a href="/login">로그인 </a></li>
+        </ol>
+      </nav>
+      <h1>
+        <span>취업에는 재수가 없다. </height:></span>
+      </h1>
+    </header>
+    <!--상단메뉴 링크의 목록-->
+    <!--<a> 하이퍼 링크  <ol>정렬된 목록 <ul> 비정렬된 목록 <li> 리스트 목록 -->
+  
+
+    <!--메인 페이지 주요 콘텐츠-->
+    <main>
+      <nav>
+        <ol>
+          <li><a href="https://www.naver.com">네이버 바로가기</a></li>
+          <li><a href="https://www.youtube.com/">유튜브 바로가기</a></li>
+          <li><a href="https://www.google.co.kr/">구글 바로가기</a></li>
+          <li><a href="마이페이지 주소">마이페이지 바로가기 </a></li>
+        </ol>
+      </nav>
+
+      <!---->
+      <video id="video" width="640" height="480"></video>
+      <button id="startButton">녹화 시작</button>
+      <button id="stopButton">녹화 중지</button>
+      <script>
+        // 미디어 스트림 가져오기
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+          .then(function(stream) {
+            var video = document.querySelector("#video");
+            video.srcObject = stream;
+            video.onloadedmetadata = function(e) {
+              video.play();
+            };
+          })
+          .catch(function(err) {
+            console.log("미디어 스트림을 가져오는 데 실패하였습니다: " + err);
+          });
+  
+        // 미디어 레코더 생성
+        var mediaRecorder;
+        var recordedBlobs = [];
+  
+        var startButton = document.getElementById("startButton");
+        var stopButton = document.getElementById("stopButton");
+  
+        startButton.addEventListener("click", function() {
+          // 미디어 레코더 시작
+          var options = { mimeType: "video/mp4" };
+          recordedBlobs = [];
+          try {
+            mediaRecorder = new MediaRecorder(window.stream, options);
+          } catch (e) {
+            console.error("MediaRecorder 오류:", e);
+            return;
+          }
+          console.log("MediaRecorder 생성됨", mediaRecorder);
+          mediaRecorder.ondataavailable = handleDataAvailable;
+          mediaRecorder.start();
+          console.log("녹화 시작");
+        });
+  
+        stopButton.addEventListener("click", function() {
+          // 미디어 레코더 중지
+          mediaRecorder.stop();
+          console.log("녹화 중지");
+        });
+  
+        function handleDataAvailable(event) {
+          if (event.data && event.data.size > 0) {
+            recordedBlobs.push(event.data);
+          }
+        }
+  
+        // 녹화된 동영상 다운로드
+        function download() {
+          var blob = new Blob(recordedBlobs, { type: "video/mp4" });
+          var url = window.URL.createObjectURL(blob);
+          var a = document.createElement("a");
+          a.style.display = "none";
+          a.href = url;
+          a.download = "recorded.mp4";
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+          }, 100);
+        }
+      </script>
+
+        <section>
+          <h2>동영상 실행 결과물</h2>
+          <div id="video-container">
+            <video width="320" height="240" controls>
+              <source src="video.mp4" type="video/mp4">
+              <source src="video.ogg" type="video/ogg">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </section>
+        <section>
+            <h2>동영상 업로드</h2>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+              <input type="file" name="video">
+              <input type="submit" value="업로드">
+            </form>
+        </section>
+        <section>
+            <h2>결과물 다운로드</h2>
+            <p>결과물을 다운로드하려면 아래 링크를 클릭하세요.</p>
+            <a href="result.mp4" download>결과물 다운로드</a>
+          </section>
+      </main>
+
+
+    <!--보통 페이지 담당자 연락처나 그렇것있잖아 연락처띠우는  칸-->
+    <footer>
+      <p>회사소개/   인재채용/   제휴제안/   이용약관/   개인정보처리방침/   청소년보호정책/   취.재.없 정책관리 /   고객센터</p>
+    </footer>
+  </body>
+</html>

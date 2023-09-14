@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Speech Recognition in Python</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/test2.css') }}" />
+</head>
+<body>
+<div id="speechContainer">
+    <h1>테스트 화면입니다!</h1>
+    <form method="post" enctype="multipart/form-data">
+        <br>
+    </form>
+
+    {% if text != "" %}
+        <div id="speechTranscriptContainer">
+            <h1>분석</h1>
+            <p id="speechText">{{ text }}</p>
+            <p id="speechText">{{ runningTime }}초</p>
+            <p id="speechText">{{ wordCountResult }}글자</p>
+            <p id="speechText">{{ wordSpeed }}</p>
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>

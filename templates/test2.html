@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speech Recognition in Python</title>
+
+  <link rel="stylesheet" href="../static/css/home.css">
+  <link rel="stylesheet" href="../static/css/info.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/test2.css') }}" />
+
+  <style>
+    #video-stream {
+        width: 50%; /* 웹캠의 너비를 100%로 설정 */
+        height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
+    }
+</style>
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ol>
+        <li><a href="https://www.naver.com">알림</a></li>
+        <li><a href="https://www.youtube.com/">메세지함</a></li>
+        <li><a href="https://www.google.co.kr/">마이페이지</a></li>
+        <li><a href="/login">로그인</a></li>
+      </ol>
+    </nav>
+    <h1>
+      <span>취업에는 재수가 없다.</span>
+    </h1>
+  </header>
+
+  <main>
+    <nav>
+      <ol>
+        <li><a href="https://www.naver.com">네이버 바로가기</a></li>
+        <li><a href="https://www.youtube.com/">유튜브 바로가기</a></li>
+        <li><a href="https://www.google.co.kr/">구글 바로가기</a></li>
+        <li><a href="마이페이지 주소">마이페이지 바로가기</a></li>
+      </ol>
+    </nav>
+
+    <section>
+      <h1>면접 화면입니다!</h1>
+      <img id="video-stream" src="{{ url_for('video_feed') }}" />
+
+      <form method="post" enctype="multipart/form-data">
+        <br>
+      </form>
+
+      {% if text != "" %}
+      <div id="speechTranscriptContainer">
+        <h1>분석</h1>
+        <p id="speechText">면접 내용: {{ text }}</p>
+        <p id="speechText">면접 시간: {{ runningTime }}초</p>
+        <p id="speechText">면접 단어: {{ wordCountResult }}글자</p>
+        <p id="speechText">면접 속도: {{ wordSpeed }}</p>
+      </div>
+      {% endif %}
+
+      {% if test_list %}
+      <p style="font-size:30px; margin: 20px;">다음 질문입니다. {{ test_list }}</p>
+      <h1><a href="/test2">답변할 준비가 되면 클릭하고 바로 말하세요.</a></h1>
+      {% else %}
+      <p>test_list 값이 없습니다.</p>
+      {% endif %}
+
+    </section>
+    <script>
+      // 웹캠 스트리밍을 자동으로 업데이트하는 함수
+      function updateVideoStream() {
+          var img = document.getElementById('video-stream');
+          img.src = "{{ url_for('video_feed') }}" + "?" + new Date().getTime();
+      }
+
+      // 일정 시간마다 웹캠 스트리밍을 업데이트
+      setInterval(updateVideoStream, 100000);  // 0.01초마다 업데이트 (100000밀리초)
+  </script>
+  
+   
+        </main>
+  
+  
+      <!--보통 페이지 담당자 연락처나 그렇것있잖아 연락처띠우는  칸-->
+      <footer>
+        <p>회사소개/   인재채용/   제휴제안/   이용약관/   개인정보처리방침/   청소년보호정책/   취.재.없 정책관리 /   고객센터</p>
+      </footer>
+    </body>
+  </html>
+</body>
+</html>

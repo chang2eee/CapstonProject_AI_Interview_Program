@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Home Page</title>
+      <link rel="stylesheet" href="../static/css/home.css">
+      <link rel="stylesheet" href="../static/css/info.css">
+
+  </head>
+  <body>
+    <header>
+      <nav>
+          {%if name%}안녕하세요 {{name}}님!<button type="button" onclick="location.href='/'">
+            로그아웃</button>
+        {%endif%}
+
+          <li><a href="https://www.naver.com">알림</a></li>
+          <li><a href="/test">테스트</a></li>
+          <li><a href="/mypage.html">마이페이지</a></li>
+
+      </nav>
+      
+      <div class="slider-video">
+        <div class="slide-video"><video src="../static/video/video1.mp4" onended="nextSlide()" muted controls></video></div>
+        <div class="slide-video"><video src="../static/video/video2.mp4" onended="nextSlide()" muted controls></video></div>
+        <div class="slide-video"><video src="../static/video/video3.mp4" onended="nextSlide()" muted controls></video></div>
+      </div>
+        <script>
+            const slider = document.querySelector('.slider-video');
+            let slideIndex = 0;
+            const slides = slider.querySelectorAll('.slide-video');
+            function showSlide() {
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = 'none';
+                }
+                slides[slideIndex].style.display = 'block';
+                slides[slideIndex].querySelector('video').play(); //동영상 자동 재생
+            }
+            function nextSlide() {
+                slideIndex++;
+                if (slideIndex >= slides.length) {
+                    slideIndex = 0;
+                }
+                showSlide();
+                if (slideIndex === 0) {
+                    // 마지막 슬라이드인 경우, 첫 번째 슬라이드에서 재생을 시작합니다.
+                    slides[0].querySelector('video').play();
+                } else {
+                    // 현재 슬라이드의 다음 슬라이드에서 재생을 시작합니다.
+                    slides[slideIndex].querySelector('video').play();
+                }
+            }
+            window.onload = function() {
+                showSlide();
+            };
+        </script>
+    </header>
+    <!--메인 페이지 주요 콘텐츠-->
+    <main>
+      <nav>
+            <!--<a> 하이퍼 링크  <ol>정렬된 목록 <ul> 비정렬된 목록 <li> 리스트 목록 -->
+        <ol>
+          <li><a href="https://www.naver.com">네이버 바로가기</a></li>
+          <li><a href="https://www.youtube.com/">유튜브 바로가기</a></li>
+          <li><a href="/shooting_page.html">면접연습</a></li>
+
+        </ol>
+      </nav>
+    <section>
+      <!--한 세션에 좌우로 나누어서 공지란과 알림판을 설정함-->
+
+
+      <!--***************************************-->
+
+      <div id="left">
+        <div class="notice">
+          <h2>공지사항</h2>
+          <ul>
+            <!--공지란을 클릭하면 공지페이지로 이동하는 부분 나중에 작업해도 쉽게 해결되는 부분-->
+            <li><a href="https://www.pknu.ac.kr/main/163?action=view&no=709947&cd=10001">2023학년도 1학기 캡스톤/어드벤처 디자인 설명회 개최 안내</a></li>
+            <li><a href="https://www.pknu.ac.kr/main/163?action=view&no=709985&cd=10001">채용 부경대학교 융합기술 사업화 확산형 전문 인력양성사업단 행정직원 채용 공고</a></li>
+            <li><a href="https://www.pknu.ac.kr/main/163?action=view&no=709980&cd=10001">2023년 한/일 학술 및 청소년 교류 관련 방일연수 대학생 참가자 모집(국립국제교육원)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="right">
+        <div class="slideshow-container">
+          <img src="../static/png/img1.jpg" class="slide">
+          <img src="../static/png/img4.jpg" class="slide">
+          <img src="../static/png/img2.PNG" class="slide">
+        </div>
+  
+        <!--자바스크립트를 이용해서 동적이 기능을 구현 
+        쉽게 설면하면 2초의 시간이 시간이 지난면 변수를 1씩변경시켜
+        해당 이미지를 바꾸는 코드 2000=2초-->
+        <script>
+          var slideIndex_info = 0;
+          showSlides();
+          function showSlides() {
+            var i;
+            var slides_info = document.getElementsByClassName("slide");
+            for (i = 0; i < slides_info.length; i++) {
+              slides_info[i].style.display = "none";
+            }
+            slideIndex_info++;
+            if (slideIndex_info > slides_info.length) {
+              slideIndex_info = 1
+            }
+            slides_info[slideIndex_info-1].style.display = "block";
+            setTimeout(showSlides, 2000); // 2초마다 이미지 전환
+          }
+        </script>
+      </div>
+
+</section>
+
+    </section>
+    <!--솔직히 여기는 일단 빈공간을 두기에 애매해서 추후에 추가적인 기능을 넣는 공간으로 활용-->
+      <section>
+        <h2>면접의 중요성</h2>
+      
+        <video width="400px" height="400px" autoplay muted loop >
+          <source src="../static/video/video1.mp4" type="video/mp4">
+          <!-- fallback content -->
+          </video>
+      </section>
+      <section>
+        <h2>뭐먹지</h2>
+       
+      </section>
+      <section>
+        <h2>뭐보지</h2>
+        <p>This is the second section of my home page.</p>
+      </section>
+      <section>
+        <h2>뭐쓰지</h2>
+        <p>This is the second section of my home page.</p>
+      </section>
+      
+
+      <footer>
+        <p>회사소개/   인재채용/   제휴제안/   이용약관/   개인정보처리방침/   청소년보호정책/   취.재.없 정책관리 /   고객센터</p>
+      </footer>
+    </main>
+
+
+    <!--보통 페이지 담당자 연락처나 그렇것있잖아 연락처띠우는 추후개발논의 -->
+
+  </body>
+</html>

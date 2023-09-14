@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Home Page</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/videolist.css">
+    <link rel="stylesheet" href="../static/css/info.css">
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ol>
+          <li><a href="https://www.naver.com">알림</a></li>
+          <li><a href="https://www.youtube.com/">메세지함</a></li>
+          <li><a href="https://www.google.co.kr/">마이페이지</a></li>
+          <li><a href="여기에 로그인 페이비 url설정">로그아웃 </a></li>
+        </ol>
+      </nav>
+      <h1>
+        <span>취업에는 재수가 없다. </height:></span>
+      </h1>
+    </header>
+    <!--<a> 하이퍼 링크  <ol>정렬된 목록 <ul> 비정렬된 목록 <li> 리스트 목록 -->
+
+
+
+    <!--유튜브처럼 썸네일 화면과 제목 그리고 이미지클릭시 페이지이동하는 세션-->
+    <!--촬용페이지에서 업로드하면 자동으로 이페이지에 업로드 되도록 설정예정-->
+    <main>
+
+
+      <nav>
+        <ol>
+          <li><a href="https://www.naver.com">네이버 바로가기</a></li>
+          <li><a href="https://www.youtube.com/">유튜브 바로가기</a></li>
+          <li><a href="https://www.google.co.kr/">면접연습</a></li>
+
+        </ol>
+      </nav>
+
+             <!--여기 세션은 notice 클래스 즉 공지란에 해당하는 디자인 패턴을 사용한다.-->
+             <section >
+              <ul class="notice" style="overflow-y: scroll; height: 200px; width: 97.5%;">
+                <h2>공지사항</h2>
+                <li><a href="주소요~~">첫 번째 공지사항입니다.</a></li>
+                <li><a href="#">두 번째 공지사항입니다.</a></li>
+                <li><a href="주소요~~">첫 번째 공지사항입니다.</a></li>
+                <li><a href="#">두 번째 공지사항입니다.</a></li>
+                <li><a href="주소요~~">첫 번째 공지사항입니다.</a></li>
+                <li><a href="#">두 번째 공지사항입니다.</a></li>
+                <li><a href="주소요~~">첫 번째 공지사항입니다.</a></li>
+                <li><a href="#">두 번째 공지사항입니다.</a></li>
+                <li><a href="주소요~~">첫 번째 공지사항입니다.</a></li>
+                <li><a href="#">두 번째 공지사항입니다.</a></li>
+                <li><a href="주소요~~">첫 번째 공지사항입니다.</a></li>
+                <li><a href="#">두 번째 공지사항입니다.</a></li>
+              </ul>
+            </section>
+        <section class="empty-section">
+          <h2>내 연습동영상 저장소</h2>
+          <div id="video-list">
+            <ul>
+              <li>
+                <a href="https://www.youtube.com/watch?v=mhrKoHndUuA">
+                  <img src="../static/png/img3.jpg" alt="동영상 썸네일">
+                  <h3>동영상 제목</h3>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=WWKAlbSKIME">
+                  <img src="../static/png/img3.jpg" alt="동영상 썸네일">
+                  <h3>동영상 제목</h3>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=FbMq73e5LbM">
+                  <img src="../static/png/img3.jpg" alt="동영상 썸네일">
+                  <h3>동영상 제목</h3>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=XAE911cpSn4">
+                  <img src="../static/png/img3.jpg" alt="동영상 썸네일">
+                  <h3>동영상 제목</h3>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=hwEpSNanGgs">
+                  <img src="../static/png/img3.jpg" alt="동영상 썸네일">
+                  <h3>동영상 제목</h3>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=hwEpSNanGgs">
+                  <img src="../static/png/img3.jpg" alt="동영상 썸네일">
+                  <h3>동영상 제목</h3>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=hwEpSNanGgs">
+                  <img src="../static/png/img3.jpg" alt="동영상 썸네일">
+                  <h3>동영상 제목</h3>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=hwEpSNanGgs">
+                  <img src="../static/png/img3.jpg" alt="동영상 썸네일">
+                  <h3>동영상 제목</h3>
+                </a>
+              </li>
+            </ul>
+          </div> 
+              <!--       여기까지        -->
+        </section>
+
+ 
+
+        <!--높이 700 넓이 2000으로하고 overflow: auto는 내부요소 넘칠때 스크롤을 만들어 조절한다.-->
+        <section class="empty-section">
+          <h2>연습영상 분석 보고서</h2>
+        </section>
+        <section class="empty-section">
+          <h2>연습노트</h2>
+        </section>
+
+        
+    </main>
+
+
+    <!--웹페이지 하단 위치하는 요소 칸
+    웹 사이트나 문서의 작성자, 저작권 정보, 연락처 정보 등과 같은
+     부가 정보를 제공합니다.-->
+    <footer>
+      <p>회사소개/   인재채용/   제휴제안/   이용약관/   개인정보처리방침/   청소년보호정책/   취.재.없 정책관리 /   고객센터</p>
+    </footer>
+  </body>
+</html>
